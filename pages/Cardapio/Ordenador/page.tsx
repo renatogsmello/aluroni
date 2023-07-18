@@ -4,9 +4,11 @@ import opcoes from "./opcoes.json"
 import { useState } from "react"
 import { MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md"
 
+export type OpcoesOrdenador = "" | "porcao" | "qtd_pessoas" | "preco"
+
 interface Props {
-	ordenador: string
-	setOrdenador: React.Dispatch<React.SetStateAction<string>>
+	ordenador: OpcoesOrdenador
+	setOrdenador: React.Dispatch<React.SetStateAction<OpcoesOrdenador>>
 }
 
 export default function Ordenador({ ordenador, setOrdenador }: Props) {
@@ -30,7 +32,7 @@ export default function Ordenador({ ordenador, setOrdenador }: Props) {
 				})}
 			>
 				{opcoes.map((opcao) => (
-					<div className={styles.ordenador__option} key={opcao.value} onClick={() => setOrdenador(opcao.value)}>
+					<div className={styles.ordenador__option} key={opcao.value} onClick={() => setOrdenador(opcao.value as OpcoesOrdenador)}>
 						{opcao.nome}
 					</div>
 				))}
