@@ -1,11 +1,11 @@
 "use client"
 import styles from "./Cardapio.module.scss"
-import logo from "assets/logo.svg"
-import Image from "next/image"
+import logo from "../assets/logo.svg"
 import Buscador from "./Buscador/page"
 import { useState } from "react"
 import Filtros from "./Filtros/page"
 import Ordenador from "./Ordenador/page"
+import Itens from "./Itens/page"
 
 export default function Cardapio() {
 	const [busca, setBusca] = useState("")
@@ -14,7 +14,7 @@ export default function Cardapio() {
 	return (
 		<main>
 			<nav className={styles.menu}>
-				<Image src={logo} width={152} height={64} alt="Logo" />
+				<img src={logo.src} width={152} height={64} alt="Logo" />
 			</nav>
 			<header className={styles.header}>
 				<div className={styles.header__text}>A casa do código e da massa</div>
@@ -26,6 +26,7 @@ export default function Cardapio() {
 					<Filtros filtro={filtro} setFiltro={setFiltro} />
 					<Ordenador ordenador={ordenador} setOrdenador={setOdenador} />
 				</div>
+				<Itens />
 			</section>
 		</main>
 	)
